@@ -1,0 +1,14 @@
+insert into sys_zhcx_type1( uuid,type_name,type_class,type_order, delete_flag)
+
+select  t.uuid,t.type_name,t.type_class,t.type_order,to_number(t.delete_flag) as delete_flag  from zhcx.sys_zhcx_type t;
+
+insert into sys_zhcx_tabs1 (UUID,DB_TYPE,DELETE_FLAG,ES_NAME,TABLE_DESC,TABLE_NAME,TABLE_ORDER,TABLE_ROWS,TABLE_SPACE,TYPE_UUID)
+
+select UUID,DB_TYPE,to_number(DELETE_FLAG),ES_NAME,TABLE_DESC,TABLE_NAME,TABLE_ORDER,TABLE_ROWS,TABLE_SPACE,TYPE_UUID from zhcx.sys_zhcx_tabs
+
+
+
+
+insert into sys_zhcx_cols1(UUID,COLD_LENGTH,COLD_TYPE,COLS_DESC,COLS_NAME,COLS_ORDER,DELETE_FLAG,MAX_LENGTH,PAGE_INPUT,PAGE_LIST,PAGE_VIEW,USER_INDEX,TABS_UUID)
+
+select UUID,COLD_LENGTH,COLD_TYPE,COLS_DESC,COLS_NAME,COLS_ORDER,to_number(DELETE_FLAG) as DELETE_FLAG,MAX_LENGTH,PAGE_INPUT,PAGE_LIST,PAGE_VIEW,USER_INDEX,TABle_UUID as TABS_UUID from zhcx.sys_zhcx_cols   

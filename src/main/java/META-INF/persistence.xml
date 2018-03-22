@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="smkj-zhcx">
+		<class>com.shumeng.application.softm.organization.po.SysDepartmentInfo</class>
+		<class>com.shumeng.application.softm.organization.po.SysRolesJurisdictionInfo</class>
+		<class>com.shumeng.application.softm.organization.po.SysOrganizationInfo</class>
+		<class>com.shumeng.application.softm.roles.po.SysRolesInfo</class>
+		<class>com.shumeng.application.softm.sysmenu.po.SysMenuInfo</class>
+		<class>com.shumeng.application.softm.roles.po.SysUserBaseInfo</class>
+		<class>com.shumeng.application.softm.roles.po.SysUserRolesInfo</class>
+		<class>com.shumeng.application.softm.organization.po.SysRolesJurisdictionInfoPK</class>
+		<class>com.shumeng.application.zhcx.po.SysZhcxCol</class>
+		<class>com.shumeng.application.zhcx.po.SysZhcxTab</class>
+		<class>com.shumeng.application.zhcx.po.SysZhcxType</class>
+		<class>com.shumeng.application.zhcx.po.SysDicUserIndexCode</class>
+		<class>com.shumeng.application.zhcx.po.VSysZhcxTab</class>
+		<class>com.shumeng.application.zhcx.po.VSysZhxCol</class>
+	</persistence-unit>
+</persistence>
