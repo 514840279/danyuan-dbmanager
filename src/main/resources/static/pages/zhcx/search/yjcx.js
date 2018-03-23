@@ -24,7 +24,30 @@ $(function() {
 	// search bar 数据
 	var url = '/zhcx/findAllType';
 	ajaxPost(url, {"username":username}, findAllType_Sucess, null, findError);
-	
+	$("#search_grep_button").bind("click",function(){
+		 $("#right-aside").removeClass("control-sidebar-open");
+		 var paramsNode=[];
+		 var parents = $("#node_div_parents_class").find("div.row");
+		 $.each(parents,function(index,val){
+			 var row = $(val);
+			 var userDesc =  row.find("#title").text();
+			 var value =  row.find("#value").text();
+			 var userIndex = row.find("#value").attr("userIndex");
+			 if(userDesc!=""){
+				 paramsNode.push({
+					 "userDesc":userDesc,
+					 "userIndex" : userIndex,
+					 "value" : value,
+				 }); 
+			 }
+			 
+		 })
+		 if(paramsNode.length==0){
+			 return
+		 }
+		 console.log(paramsNode);
+//		 alert("aaaa");
+	 })
 });
 
 // 分类别添加
@@ -207,7 +230,7 @@ Date.prototype.format = function(fmt) {
    return fmt; 
 } 
 
-
+//var paramsNode=[];
 // 表数据加载
 function reset(id,tableName,column,sysColumn,table,tableDesc) {
 	var sysc = [];
@@ -280,7 +303,38 @@ function reset(id,tableName,column,sysColumn,table,tableDesc) {
 //			
 			return {data:result.list};
 		}, 
-	    
+		 contextMenu: '#context-menu',
+		 onContextMenuItem: function(row,$ele){
+			 
+			 $.each(sysc,function(index,value){
+				 var val = eval("row."+value.colsName);
+				 if(val!=null){
+					 var userDesc ="";
+					 $.each(userindexList,function(ind,va){
+						if(value.userIndex == va.userIndex){
+							userDesc = va.userDesc;
+						}
+					});
+					if(userDesc == "日期"){
+						val = new Date(parseInt(val)).format("yyyy/MM/dd");
+					};
+					
+					var node = {
+						 "userDesc":userDesc,
+						 "userIndex" : value.userIndex,
+						 "value" : val,
+					};
+//					paramsNode.push(node);
+					// 修改工具栏信息
+					$("#right-aside").click();
+					$("#right-aside").addClass("control-sidebar-open");
+					$("#right-aside").find("ul").find("li").find("a").click();
+					assideBarAppendNode(node);
+				 }
+			 });
+//			 console.log(paramsNode);
+			 
+		  }
 	}).on('dbl-click-row.bs.table', function (e, row, ele,field) {
 		$("#zhxx_mapString").val(JSON.stringify(row));
 		$("#zhxx_paramString").val(JSON.stringify(sysColumn));
@@ -296,6 +350,19 @@ function reset(id,tableName,column,sysColumn,table,tableDesc) {
 		$('#'+id).bootstrapTable('resetView');
 	});
 	
+}
+// 删除单组元素显示效果
+function assideBarAppendNode(node){
+	var parents = $("#node_div_parents_class");
+	var row = parents.find(".row:eq(0)").clone();
+	row.find("#title").text(node.userDesc);
+	row.find("#value").text(node.value);
+	row.find("#value").attr("userIndex",node.userIndex);
+	row.find("#button").bind("click",function(el){
+		row.remove();
+	})
+	row.css({"display":""});
+	parents.append(row);
 }
 
 // 表添加

@@ -73,6 +73,7 @@
 									</div>
 								</li>
 							</ul></li>
+							<li><a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a></li>
 					</ul>
 				</div>
 
@@ -143,8 +144,49 @@
 <!-- 			<strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>. -->
 <!-- 			</strong> All rights reserved. -->
 		</footer>
+	
+		<!-- ./wrapper -->
+		<aside class="control-sidebar control-sidebar-dark" id="right-aside">
+			<!-- Create the tabs -->
+			<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+				<li><a href="#control-sidebar-home-tab1" data-toggle="tab"><i class="fa fa-wrench"></i></a></li>
+<!-- 				<li><a href="#control-sidebar-home-tab2" data-toggle="tab"><i class="fa fa-home"></i></a></li> -->
+<!-- 				<li><a href="#control-sidebar-home-tab3" data-toggle="tab"><i class="fa fa-gears"></i></a></li> -->
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<!-- Home tab content -->
+				<div class="tab-pane" id="control-sidebar-home-tab1">
+				
+					<div id="node_div_parents_class">
+						<div class="row" style="display: none; margin-top: 5px; ">
+							<div class="col-xs-5 strong" id="title" ></div>	
+							<div class="col-xs-5 pull-right btn" id="button" ><i class="fa fa-remove"></i></div>	
+							<div class="col-xs-12" userIndex="" id="value"></div>
+						</div>
+					</div>
+					<div class="pull-right">
+						<button type="button" class="btn btn-primary" value="找关系" id="search_grep_button" style="margin-top: 5px;">找关系</button>
+					</div>
+				</div>
+				<!-- /.tab-pane -->
+				<!-- Home tab content -->
+<!-- 				<div class="tab-pane" id="control-sidebar-home-tab2"></div> -->
+				<!-- /.tab-pane -->
+
+				<!-- Settings tab content -->
+<!-- 				<div class="tab-pane" id="control-sidebar-home-tab3"></div> -->
+				<!-- /.tab-pane -->
+			</div>
+			
+		</aside>
+		<div class="control-sidebar-bg" > 
+		</div>
 	</div>
-	<!-- ./wrapper -->
+	<!-- context menu -->
+    <ul id="context-menu" class="dropdown-menu">
+        <li data-item="edit"><a>加入工具</a></li>
+    </ul>  
 	
     <form id="zhlbform" name="zhlbform" action="/zhcx/forwordZhlb" method="post" target="_blank" hidden="hidden">
 		<input id="tableuuid"  name="tableuuid" value="" />
@@ -181,6 +223,7 @@
 	<script type="text/javascript" src="/plugins/bootstrap/table/bootstrap-table.min.js"></script>
 	<script type="text/javascript" src="/plugins/bootstrap/table/extensions/export/bootstrap-table-export.min.js"></script>
 	<script type="text/javascript" src="/plugins/bootstrap/table/extensions/editable/bootstrap-table-editable.min.js"></script>
+	<script type="text/javascript" src="/plugins/bootstrap/table/extensions/contextmenu/bootstrap-table-contextmenu.min.js"></script>
 	<script type="text/javascript" src="/plugins/bootstrap/table/locale/bootstrap-table-zh-CN.min.js"></script>
 
 	<script src="/plugins/toastr/toastr.min.js"></script>
