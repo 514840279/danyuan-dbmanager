@@ -34,10 +34,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-ldap</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework.boot</groupId> -->
+		<!-- <artifactId>spring-boot-starter-mail</artifactId> -->
+		<!-- </dependency> -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.springframework.boot</groupId> -->
 		<!-- <artifactId>spring-boot-starter-security</artifactId> -->
@@ -66,11 +66,39 @@
 			<artifactId>ojdbc14</artifactId>
 			<version>14</version>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.oracle</groupId> -->
-<!-- 			<artifactId>ojdbc6</artifactId> -->
-<!-- 			<version>11.2.0.1.0</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.oracle</groupId> -->
+		<!-- <artifactId>ojdbc6</artifactId> -->
+		<!-- <version>11.2.0.1.0</version> -->
+		<!-- </dependency> -->
+		<!-- 图数据库 start -->
+		<!-- 图形数据库Neo4j 官方支持的neo4j依赖包 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-neo4j</artifactId>
+			  <exclusions>
+                <exclusion>
+                    <groupId>org.neo4j</groupId>
+                    <artifactId>neo4j-ogm-http-driver</artifactId>
+                </exclusion>
+            </exclusions>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.neo4j</groupId> -->
+		<!-- <artifactId>neo4j-ogm-embedded-driver</artifactId> -->
+		<!-- <version>2.0.5</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.neo4j</groupId> -->
+		<!-- <artifactId>neo4j-ogm-bolt-driver</artifactId> -->
+		<!-- <version>2.0.5</version> -->
+		<!-- </dependency> -->
+		 <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-bolt-driver</artifactId>
+            <version>${neo4j-ogm.version}</version>
+        </dependency>
+		<!-- 图数据库 end -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

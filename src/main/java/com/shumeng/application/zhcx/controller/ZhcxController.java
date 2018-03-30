@@ -155,4 +155,13 @@ public class ZhcxController {
 		return view;
 	}
 	
+	@ApiOperation(value = "详细展示", notes = "")
+	@RequestMapping(path = "/forwardChart", method = RequestMethod.POST)
+	public ModelAndView forwardChart(SysZhcxColVo vo) {
+		logger.info("forwardChart", ZhcxController.class);
+		ModelAndView view = new ModelAndView("zhcx/search/chart");
+		view.addObject("paramString", vo.getParamString());
+		return view;
+	}
+	
 }

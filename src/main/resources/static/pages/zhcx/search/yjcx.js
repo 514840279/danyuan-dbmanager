@@ -45,8 +45,9 @@ $(function() {
 		 if(paramsNode.length==0){
 			 return
 		 }
-		 console.log(paramsNode);
-//		 alert("aaaa");
+		jQuery("#chart_paramString").val(JSON.stringify(paramsNode));
+		jQuery("#chartform").attr("action",  "/zhcx/forwardChart");
+		jQuery("#chartform").submit();
 	 })
 });
 

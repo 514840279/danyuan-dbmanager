@@ -45,6 +45,10 @@ function multeitySearchButtonClick(){
 				}
 			});
 		});
+		if(paramList.length==0){
+			alert("请输入关键字");
+			return;
+		}
 		$("#zhcx_type").val("一键查询单表多个不同索引拼接");
 		$("#zhcx_userindex").val("");
 		$("#zhcx_sousuo_input").val("");
